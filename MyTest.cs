@@ -1,6 +1,4 @@
-using System;
 using NUnit.Framework;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using Shouldly;
 
@@ -9,31 +7,32 @@ namespace Test
     public class MyTest
     {
         [OneTimeSetUp]
-        public void StartFirefox()
-        {
-            Given.Firefox = Given.Firefox.Start();
+        public void TestStartBrowser() {
+            Given.Firefox = new FirefoxDriver();
         }
 
         [OneTimeTearDown]
-        public void CloseFirefox()
+        public void TestCloseAllBrowser()
         {
-            Given.Firefox.Close();
+            Given.Firefox.Quit();
         }
 
         [Test]
-        public void TestGoogleSearchCooking3Minites()
+        public void TestGoogleTranslateCats()
         {
             Given.Firefox
                 .OpenGoogle()
-                .Search("cooking 3 minutes");
+                .SearchWith("cats")
+                .Title.ShouldStartWith("cats");
         }
 
         [Test]
-        public void TestGoogleSearchILoveTasty()
+        public void TestGoogleTranslateDogs()
         {
             Given.Firefox
                 .OpenGoogle()
-                .Search("i love tasty");
+                .SearchWith("dogs")
+                .Title.ShouldStartWith("dogs");
         }
     }
 }
