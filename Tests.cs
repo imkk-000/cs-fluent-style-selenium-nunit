@@ -4,7 +4,7 @@ using Shouldly;
 
 namespace Test
 {
-    public class MyTest
+    public class Tests
     {
         [OneTimeSetUp]
         public void TestStartBrowser() {
@@ -18,7 +18,7 @@ namespace Test
         }
 
         [Test]
-        public void TestGoogleTranslateCats()
+        public void TestGoogleSearchWithCats()
         {
             Given.Firefox
                 .OpenGoogle()
@@ -27,7 +27,7 @@ namespace Test
         }
 
         [Test]
-        public void TestGoogleTranslateDogs()
+        public void TestGoogleSearchWithDogs()
         {
             Given.Firefox
                 .OpenGoogle()

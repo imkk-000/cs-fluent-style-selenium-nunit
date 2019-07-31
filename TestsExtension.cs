@@ -4,7 +4,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace Test
 {
-    public static class MyTestExtension
+    public static class TestsExtension
     {
         public static IWebDriver OpenGoogle(this IWebDriver driver)
         {
